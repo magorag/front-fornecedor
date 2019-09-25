@@ -19,8 +19,8 @@
                 <button class="close" @click="close"><img src="@/assets/close.svg" alt=""></button>
                 <h2>Link para cadastro gerado com sucesso!</h2>
                 <h3>Copie o link abaixo e envie para o fornecedor se cadastrar.</h3>
-                <input type="text" :value="'http://localhost:8081/cadastro/' + this.hash" id="linkHash">
-                <router-link to=""><h5>http://localhost:8081/cadastro/{{this.hash}}</h5></router-link>
+                <input type="text" :value="'https://dinamicafornecedor.herokuapp.com/cadastro/' + this.hash" id="linkHash">
+                <router-link to=""><h5>https://dinamicafornecedor.herokuapp.com/cadastro/{{this.hash}}</h5></router-link>
                 <button @click="copiarLink">Copiar Link</button>
                 <h4 id="h4Link">Este link funciona apenas para 1(um) cadastro.</h4>
             </div>
