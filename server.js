@@ -11,7 +11,6 @@ app.use(history({
   disableDotRule: true,
   verbose: true
 }));
-app.use(staticFileMiddleware);
 
 app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
@@ -19,5 +18,5 @@ app.get('/', function (req, res) {
 
 var server = app.listen(process.env.PORT || 8080, function () {
   var port = server.address().port;
-  console.log("App now running on port", port);
+  console.log("Escutando na porta", port);
 });
