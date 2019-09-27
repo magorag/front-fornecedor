@@ -8,11 +8,16 @@ const staticFileMiddleware = express.static(path.join(__dirname + '/dist'));
 
 app.use(staticFileMiddleware);
 app.use(history({
+  index: path.join(__dirname + '/dist/index.html'),
   disableDotRule: true,
   verbose: true
 }));
 
 app.get('/', function (req, res) {
+  res.render(path.join(__dirname + '/dist/index.html'));
+});
+
+app.get('*', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
 });
 
