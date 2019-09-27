@@ -1,27 +1,10 @@
-const express = require('express');
-const path = require('path');
-const history = require('connect-history-api-fallback');
+var history = require('connect-history-api-fallback');
+var express = require('express')
+var path = require('path')
+var serveStatic = require('serve-static')
 
-const app = express();
-
-const staticFileMiddleware = express.static(path.join(__dirname + '/dist'));
-
-app.use(staticFileMiddleware);
-app.use(history({
-  index: path.join(__dirname + '/dist/index.html'),
-  disableDotRule: true,
-  verbose: true
-}));
-
-app.get('/', function (req, res) {
-  res.render(path.join(__dirname + '/dist/index.html'));
-});
-
-app.get('*', function (req, res) {
-  res.render(path.join(__dirname + '/dist/index.html'));
-});
-
-var server = app.listen(process.env.PORT || 8080, function () {
-  var port = server.address().port;
-  console.log("Escutando na porta", port);
-});
+app = express()
+app.use(history());    
+app.use(serveStatic(path.join(__dirname + '/dist')))
+var port = process.env.PORT || 5000
+app.listen(port)
